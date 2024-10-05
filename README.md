@@ -3,7 +3,7 @@ Please click [this link](https://docs.google.com/presentation/d/1nWH_CmF6iba0kQm
 
 ## Deadline
 
-**2024/11/5 (Tue.) 23:59 (GMT+8)**
+**2024/11/1 (Fri.) 23:59 (GMT+8)**
 
 ## Packages
 
@@ -19,15 +19,21 @@ conda env create -f environment.yaml
 conda activate ldm
 ```
 
-To install the stable-diffusion v1.4. You can download the sd-v1-4.ckpt from [hugging face link](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/tree/main) or simply using wget
+To install the stable-diffusion v1.4. You can download the sd-v1-4.ckpt file from [hugging face link](https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/tree/main) or use wget
 
-    wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
+```sh
+wget https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/resolve/main/sd-v1-4.ckpt
+```
 
-Remember to put the model checkpoint at stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
+place the model checkpoint in the following path:
 
-Note that using packages with different versions will very likely lead to compatibility issues, so make sure that you install the correct version if one is specified above. E-mail or ask the TAs first if you want to import other packages.
+```sh
+stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
+```
 
-> :warning: You can't use diffuser for easy implementation!
+> :warning: **Note**: Using packages with different versions will very likely lead to compatibility issues, so make sure that you install the correct version if one is specified above. E-mail or ask the TAs first if you want to import other packages.
+
+> :warning: **Important**: You can't use **diffuser** for easy implementation!
 
 ## Hint
 
