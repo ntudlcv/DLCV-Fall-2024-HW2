@@ -48,7 +48,7 @@ def calculate_clip_scores(input_images: List[Tuple[str, Image.Image]],
                 ref_features = model.get_image_features(**ref_inputs)
                 
                 # Calculate similarity scores
-                similarity = torch.nn.functional.cosine_similarity(input_features, ref_features)
+                similarity = 100 * torch.nn.functional.cosine_similarity(input_features, ref_features)
                 scores = similarity.squeeze().tolist()
                 
                 # Handle single image case
@@ -61,12 +61,9 @@ def calculate_clip_scores(input_images: List[Tuple[str, Image.Image]],
                     score_counts[input_path] += 1
 
     # Calculate average scores
-    avg_scores = [(path, score_sums[path] / score_counts[path]) for path in score_sums]
+    avg_scores = [score_sums[path] / score_counts[path] for path in score_sums]
     
-    # Sort by average score and take top 20
-    top_20 = sorted(avg_scores, key=lambda x: x[1], reverse=True)[:20]
-    
-    return top_20
+    return avg_scores
 
 
 def calculate_clip_image_scores_folder(folder_path: str, reference_folder: str) -> float:
@@ -75,11 +72,10 @@ def calculate_clip_image_scores_folder(folder_path: str, reference_folder: str) 
     reference_images = load_images_from_folder(reference_folder)
 
         # Check if the number of images is equal to 100
-    if len(input_images) != 11:
-        raise ValueError(f"The number of images in the folder must be exactly 100. Found {len(input_images)} images.")
+    if len(input_images) != 25:
+        raise ValueError(f"The number of images in the folder must be exactly 25. Found {len(input_images)} images.")
 
 
-    top_20_scores = calculate_clip_scores(input_images, reference_images)
-    avg_top_20_score = sum(score for _, score in top_20_scores) / len(top_20_scores)
+    avg_scores = calculate_clip_scores(input_images, reference_images)
 
-    return 100*avg_top_20_score
+    return avg_scores

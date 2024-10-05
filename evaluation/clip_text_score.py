@@ -4,7 +4,7 @@ from transformers import CLIPProcessor, CLIPModel
 from typing import List, Tuple
 import os
 
-def calculate_clip_scores_folder(folder_path: str, text: str) -> List[Tuple[str, float]]:
+def calculate_clip_text_scores_folder(folder_path: str, text: str) -> List[Tuple[str, float]]:
     # Load the CLIP model and processor
     model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
     processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
@@ -17,8 +17,8 @@ def calculate_clip_scores_folder(folder_path: str, text: str) -> List[Tuple[str,
     ]
 
     # Check if the number of images is equal to 100
-    if len(image_paths) != 11:
-        raise ValueError(f"The number of images in the folder must be exactly 100. Found {len(image_paths)} images.")
+    if len(image_paths) != 25:
+        raise ValueError(f"The number of images in the folder must be exactly 25. Found {len(image_paths)} images.")
 
     # Process images in batches to avoid memory issues
     batch_size = 32
@@ -42,16 +42,6 @@ def calculate_clip_scores_folder(folder_path: str, text: str) -> List[Tuple[str,
             clip_scores = [clip_scores]
 
         # Pair each image path with its score
-        all_scores.extend(list(zip(batch_paths, clip_scores)))
+        all_scores.extend(clip_scores)
 
     return all_scores
-
-# Example usage
-def calculate_clip_text_scores_folder(folder_path: str, text_description: str) -> List[Tuple[str, float]]:
-    scores = 100 * calculate_clip_scores_folder(folder_path, text_description)
-    # Keep the top 20 scores
-    top_20_scores = sorted(scores, key=lambda x: x[1], reverse=True)[:20]
-
-    # Calculate the average score of the top 20
-    average_score = sum(score for _, score in top_20_scores) / len(top_20_scores)
-    return average_score

@@ -1,10 +1,14 @@
 #Ignore the dataset
 #IMPORTANT: make sure that your dataset is stored in a folder with the same as the one specified below
 
-wandb/*
-hw2_data/*
+
 *png
 *jpg
 *.pyc
 *.pyo
+*.bin
+
 output/*
+stable-diffusion/ti_cat/*
+wandb/*
+hw2_data/*

@@ -23,8 +23,6 @@ from ldm.modules.ema import LitEma
 from ldm.modules.distributions.distributions import normal_kl, DiagonalGaussianDistribution
 from ldm.models.autoencoder import VQModelInterface, IdentityFirstStage, AutoencoderKL
 from ldm.modules.diffusionmodules.util import make_beta_schedule, extract_into_tensor, noise_like
-from ldm.models.diffusion.ddim import DDIMSampler
-
 
 __conditioning_keys__ = {'concat': 'c_concat',
                          'crossattn': 'c_crossattn',
@@ -1234,15 +1232,15 @@ class LatentDiffusion(DDPM):
     @torch.no_grad()
     def sample_log(self,cond,batch_size,ddim, ddim_steps,**kwargs):
 
-        if ddim:
-            ddim_sampler = DDIMSampler(self)
-            shape = (self.channels, self.image_size, self.image_size)
-            samples, intermediates =ddim_sampler.sample(ddim_steps,batch_size,
-                                                        shape,cond,verbose=False,**kwargs)
+        # if ddim:
+        #     ddim_sampler = DDIMSampler(self)
+        #     shape = (self.channels, self.image_size, self.image_size)
+        #     samples, intermediates =ddim_sampler.sample(ddim_steps,batch_size,
+        #                                                 shape,cond,verbose=False,**kwargs)
 
-        else:
-            samples, intermediates = self.sample(cond=cond, batch_size=batch_size,
-                                                 return_intermediates=True,**kwargs)
+        # else:
+        samples, intermediates = self.sample(cond=cond, batch_size=batch_size,
+                                                return_intermediates=True,**kwargs)
 
         return samples, intermediates
 
