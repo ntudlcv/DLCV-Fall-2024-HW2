@@ -31,6 +31,11 @@ place the model checkpoint in the following path:
 stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
 ```
 
+You can run the following command to test if you successfully build the environment
+```sh
+python scripts/txt2img.py --prompt "a photograph of an astronaut riding a horse"
+```
+
 > :warning: **Note**: Using packages with different versions will very likely lead to compatibility issues, so make sure that you install the correct version if one is specified above. E-mail or ask the TAs first if you want to import other packages.
 
 > :warning: **Important**: You can't use **diffuser** for easy implementation!
