@@ -3,7 +3,7 @@ Please click [this link](https://docs.google.com/presentation/d/1nWH_CmF6iba0kQm
 
 ## Deadline
 
-**2024/11/1 (Fri.) 23:59 (GMT+8)**
+**2024/10/29 (Tue.) 23:59 (GMT+8)**
 
 ## Packages
 
