@@ -8,7 +8,7 @@ if __name__ == '__main__':
     # Set up argument parser
     parser = argparse.ArgumentParser(description='Process some JSON data.')
     parser.add_argument('--json_path', type=str, help='Path to the JSON file')
-    parser.add_argument('--input_dir', type=str, default='.', help='Root directory of the hw2_data')
+    parser.add_argument('--input_dir', type=str, default='.', help='Directory of the hw2_data/textual_inversion')
     parser.add_argument('--output_dir', type=str, default='.', help='Directory of saved output')
     
     # Parse the arguments

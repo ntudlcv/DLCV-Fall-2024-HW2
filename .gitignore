@@ -9,6 +9,4 @@
 *.bin
 
 output/*
-stable-diffusion/ti_cat/*
-wandb/*
 hw2_data/*

@@ -40,7 +40,7 @@ stable-diffusion/models/ldm/stable-diffusion-v1/model.ckpt
 Your model is a DDPM, located in stable-diffusion/ldm/models/diffusion/ddpm.py. You may need to use model.cond_stage_model for the text encoder. Since Diffusion v1.4 is a latent diffusion model that operates in the latent space, functions such as model.encode_first_stage and model.get_first_stage_encoding may also be necessary. Additionally, model.q_sample could be useful for your process.
 
 ## Grading
-We provide the code for evaluation
+We provide the code for evaluation of hw2_3
     
     python evaluation/grade_hw2_3.py --json_path hw2_data/textual_inversion/input.json --input_dir hw2_data/textual_inversion --output_dir output_folder_example 
 
