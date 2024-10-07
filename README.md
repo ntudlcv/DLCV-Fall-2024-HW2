@@ -36,9 +36,18 @@ You can run the following command to test if you successfully build the environm
 python scripts/txt2img.py --prompt "a photograph of an astronaut riding a horse"
 ```
 
+(Optional)
+You can also install the environment with pip and requirements.txt, note that the version of pytorch should match your CUDA version. [pytorch CUDA version](https://pytorch.org/get-started/previous-versions/)
+```sh
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install -r requirements.txt
+cd stable-diffusion
+pip install -e .
+```
+
 > :warning: **Note**: Using packages with different versions will very likely lead to compatibility issues, so make sure that you install the correct version if one is specified above. E-mail or ask the TAs first if you want to import other packages.
 
-> :warning: **Important**: You can't use **diffuser** for easy implementation!
+> :warning: **Important**: You can **NOT** use **diffuser** for easy implementation!
 
 ## Hint
 
